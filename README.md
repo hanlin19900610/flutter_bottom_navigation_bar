@@ -2,7 +2,7 @@
 
 ##### 刚接触Flutter,需要实现一个类似闲鱼APP的底部导航栏的实现
 
-> 源码链接: 
+> 源码链接: [https://github.com/hanlin19900610/flutter_bottom_navigation_bar](https://github.com/hanlin19900610/flutter_bottom_navigation_bar)
 
 ##### 要实现的效果如图:
 ![image](http://i1.bvimg.com/655692/124fc0b555aefe0a.png)
@@ -311,6 +311,8 @@ physics: NeverScrollableScrollPhysics(),
 #### 如此一来,我们就完成了,文章开始提出的需求了.
 
 > 刚开始接触Flutter,代码写的有些混乱,可能有些问题考虑不是很深入,有不足之处,还请各位大佬指出
+
+> 源码链接: [https://github.com/hanlin19900610/flutter_bottom_navigation_bar](https://github.com/hanlin19900610/flutter_bottom_navigation_bar)
 
 
 #### 推荐阅读
