@@ -13,7 +13,9 @@ class _AssistantPageState extends State<AssistantPage>{
     return MaterialApp(
       home: Scaffold(
         body: Center(
-          child: Text('这是助手页面'),
+          child: Container(
+          color: Colors.blue,
+        )
         ),
       ),
     );

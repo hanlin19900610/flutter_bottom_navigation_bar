@@ -13,7 +13,10 @@ class _HomePageState extends State<HomePage>{
     return MaterialApp(
       home: Scaffold(
         body: Center(
-          child: Text('这是首页'),
+
+          child: Container(
+            color: Colors.red,
+          )
         ),
       ),
     );

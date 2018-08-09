@@ -13,7 +13,9 @@ class _MinePageState extends State<MinePage>{
     return MaterialApp(
       home: Scaffold(
         body: Center(
-          child: Text('这是我的页面'),
+          child: Container(
+            color: Colors.orange,
+          )
         ),
       ),
     );

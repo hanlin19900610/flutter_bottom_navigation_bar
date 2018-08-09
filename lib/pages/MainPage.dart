@@ -21,44 +21,46 @@ class _MainPage extends State<MainPage> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        primaryColor: Colors.red
-      ),
+        theme: ThemeData(primaryColor: Colors.red),
         home: Scaffold(
-            body: new PageView(
-              physics: NeverScrollableScrollPhysics(),
-              children: <Widget>[HomePage(), AssistantPage(), MinePage()],
-              controller: pageController,
-              onPageChanged: onPageChanged,
-            ),
-            //重构bottomNavigationBar
-            bottomNavigationBar: Container(
-              height: 100.0,
-              child: Stack(
+            body: Stack(
+          children: <Widget>[
+            Scaffold(
+              body: PageView(
+                physics: NeverScrollableScrollPhysics(),
                 children: <Widget>[
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: BottomNavigationBar(
-                      items: [
-                        BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('首页')),
-                        BottomNavigationBarItem(icon: Icon(Icons.assessment), title: Text('')),
-                        BottomNavigationBarItem(icon: Icon(Icons.person), title: Text('我的')),
-                      ],
-                      onTap: onTap,
-                      currentIndex: page,
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: InkWell(
-                      child: new Image.asset(bigImg,width: 80.0,height: 80.0,),
-                      onTap:onBigImgTap,
-                    ),
-                  )
+                  new HomePage(),
+                  new AssistantPage(),
+                  new MinePage()
                 ],
+                controller: pageController,
+                onPageChanged: onPageChanged,
               ),
-            )
-        ));
+              bottomNavigationBar: BottomNavigationBar(
+                items: [
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.home), title: Text('首页')),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.assessment), title: Text('发布')),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.person), title: Text('我的')),
+                ],
+                onTap: onTap,
+                currentIndex: page,
+              ),
+            ),
+            Align(
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 30.0),
+                child: FloatingActionButton(
+                  child: new Image.asset(bigImg),
+                  onPressed: onBigImgTap,
+                ),
+              ),
+              alignment: Alignment.bottomCenter,
+            ),
+          ],
+        )));
   }
 
   @override
@@ -78,9 +80,13 @@ class _MainPage extends State<MainPage> with SingleTickerProviderStateMixin {
       setState(() {
         this.bigImg = 'images/home_green.png';
       });
+    }else{
+      setState(() {
+        this.bigImg = 'images/icon_home.png';
+      });
     }
-    pageController.animateToPage(index,
-        duration: const Duration(milliseconds: 300), curve: Curves.ease);
+
+    pageController.jumpToPage(index);
   }
 
   //添加图片的点击事件
@@ -91,8 +97,6 @@ class _MainPage extends State<MainPage> with SingleTickerProviderStateMixin {
       onTap(1);
     });
   }
-
-
 
   void onPageChanged(int page) {
     setState(() {
