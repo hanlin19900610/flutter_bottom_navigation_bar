@@ -3,9 +3,9 @@ import 'package:flutter_bottom_navigation_bar/pages/demo2_page.dart';
 import 'pages/demo1_page.dart';
 import 'pages/demo1_page.dart';
 
-void main() => runApp(LightLanguageClient());
+void main() => runApp(MyApp());
 
-class LightLanguageClient extends StatelessWidget{
+class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

@@ -13,10 +13,6 @@ class _Demo2PageState extends State<Demo2Page> {
   PageController pageController;
   int page = 0;
 
-  //添加图片地址,需要动态更换图片
-  //添加图片地址,需要动态更换图片
-  String bigImg = 'images/home_green.png';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +31,7 @@ class _Demo2PageState extends State<Demo2Page> {
         onPageChanged: onPageChanged,
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: onBigImgTap,
+        onPressed: () => onTap(1),
         child: Icon(
           Icons.add,
           color: Colors.white,
@@ -109,25 +105,7 @@ class _Demo2PageState extends State<Demo2Page> {
   }
 
   void onTap(int index) {
-    if (index != 1) {
-      setState(() {
-        this.bigImg = 'images/home_green.png';
-      });
-    } else {
-      setState(() {
-        this.bigImg = 'images/icon_home.png';
-      });
-    }
     pageController.jumpToPage(index);
-  }
-
-  //添加图片的点击事件
-  void onBigImgTap() {
-    setState(() {
-      this.page = 1;
-//      this.bigImg = 'images/icon_home.png';
-      onTap(1);
-    });
   }
 
   void onPageChanged(int page) {
