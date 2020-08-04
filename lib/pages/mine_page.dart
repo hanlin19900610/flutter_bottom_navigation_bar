@@ -10,14 +10,10 @@ class MinePage extends StatefulWidget{
 class _MinePageState extends State<MinePage>{
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         body: Center(
-          child: Container(
-            color: Colors.orange,
-          )
+          child: Text('个人中心')
         ),
-      ),
     );
   }
 }

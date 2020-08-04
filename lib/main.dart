@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'pages/MainPage.dart';
+import 'package:flutter_bottom_navigation_bar/pages/demo2_page.dart';
+import 'pages/demo1_page.dart';
+import 'pages/demo1_page.dart';
 
 void main() => runApp(LightLanguageClient());
 
@@ -11,7 +13,38 @@ class LightLanguageClient extends StatelessWidget{
       theme: ThemeData(
           primarySwatch: Colors.blue
       ),
-      home: MainPage(),
+      home: DemoPage(),
+    );
+  }
+}
+
+class DemoPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            RaisedButton(
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (_) {
+                  return Demo1Page();
+                }));
+              },
+              child: Text('DEMO1'),
+            ),
+            RaisedButton(
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (_) {
+                  return Demo2Page();
+                }));
+              },
+              child: Text('DEMO2'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
